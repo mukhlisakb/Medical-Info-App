@@ -21,9 +21,10 @@ class MainFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private val rvMedicalInfo by lazy { view?.findViewById<RecyclerView>(R.id.rv_medical_info) }
-    private val febAddData by lazy { view?.findViewById<FloatingActionButton>(R.id.feb_add_data) }
-    private val adapter: MedicalInfoAdapter by lazy { MedicalInfoAdapter() }
+
+    private lateinit var rvMedicalInfo: RecyclerView
+    private lateinit var febAddData: FloatingActionButton
+    private lateinit var adapter: MedicalInfoAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,18 +44,34 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initViews()
         initMedicalInfoList()
+        getDataFromInputFragment()
         febAddData?.setOnClickListener {
             val bundle = bundleOf("medicalInfoData" to adapter.currentList.toTypedArray())
             findNavController().navigate(R.id.action_mainFragment_to_inputFragment, bundle)
         }
+    }
 
+    private fun initViews() {
+        view?.let{
+            rvMedicalInfo = it.findViewById(R.id.rv_medical_info)
+            febAddData = it.findViewById(R.id.feb_add_data)
+            adapter = MedicalInfoAdapter()
+        }
     }
 
     private fun initMedicalInfoList() {
         rvMedicalInfo?.layoutManager = LinearLayoutManager(context)
         rvMedicalInfo?.adapter = adapter
         adapter.setData(generateDummyData())
+    }
+
+    private fun getDataFromInputFragment() {
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<List<MedicalInfo>>("resultKey")
+            ?.observe(viewLifecycleOwner) { result ->
+                adapter.setData(result)
+            }
     }
 
     private fun generateDummyData(): List<MedicalInfo> {

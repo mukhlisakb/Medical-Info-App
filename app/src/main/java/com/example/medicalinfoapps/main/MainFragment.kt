@@ -1,5 +1,7 @@
 package com.example.medicalinfoapps.main
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,7 +19,7 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 
-class MainFragment : Fragment() {
+class MainFragment : Fragment(), MedicalInfoListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -57,7 +59,7 @@ class MainFragment : Fragment() {
         view?.let{
             rvMedicalInfo = it.findViewById(R.id.rv_medical_info)
             febAddData = it.findViewById(R.id.feb_add_data)
-            adapter = MedicalInfoAdapter()
+            adapter = MedicalInfoAdapter(this)
         }
     }
 
@@ -81,14 +83,10 @@ class MainFragment : Fragment() {
         )
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MainFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onNumberClicked(phoneNumber: String) {
+        val intent = Intent(Intent.ACTION_DIAL)
+        intent.data = Uri.parse("tel:$phoneNumber")
+        startActivity(intent)
     }
+
 }

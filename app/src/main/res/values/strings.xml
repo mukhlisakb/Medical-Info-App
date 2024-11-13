@@ -8,4 +8,8 @@
     <string name="title_detail">Disusun oleh \nLevel \nTeknologi \nEstimasi \nWebsite \n \nModul </string>
     <string name="title_about_detail">Contact Person \n  \nTwitter \nInstagram \nLinkedIn \nDicoding </string>
     <string name="about_detail">\n \n@mukhlisakb \n@amukhlisakb \nhttps://www.linkedin.com/in/mukhlisakb/  \nhttps://www.dicoding.com/users/mukhlisakb </string>
+    <string name="detil_rumah_sakit">Detil Rumah Sakit</string>
+    <string name="des_rmh_sakit">Rumah Sakit ini sedang dalam perbaikian sampai 5 hari kedepan \n harap bersabar</string>
+    <string name="nama_rumah_sakit">Nama Rumah Sakit</string>
+    <string name="no_hp">+62 8888888</string>
 </resources>

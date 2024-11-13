@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Medicalinfoapps"
         tools:targetApi="31">
         <activity
+            android:name=".DetailHospitalActivity"
+            android:exported="false" />
+        <activity
             android:name=".about.AboutActivity"
             android:exported="false" />
         <activity

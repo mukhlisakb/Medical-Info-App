@@ -46,4 +46,17 @@
         android:layout_margin="16dp"
         />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/feb_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/feb_color"
+        android:src="@android:drawable/ic_dialog_info"
+        app:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/feb_add_data"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

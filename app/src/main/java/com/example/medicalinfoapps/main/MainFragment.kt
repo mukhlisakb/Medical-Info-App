@@ -10,38 +10,25 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.medicalinfoapps.R
+import com.example.medicalinfoapps.about.AboutActivity
 import com.example.medicalinfoapps.common.MedicalInfo
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
+import com.example.medicalinfoapps.databinding.FragmentMainBinding
 
 class MainFragment : Fragment(), MedicalInfoListener {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    private lateinit var rvMedicalInfo: RecyclerView
-    private lateinit var febAddData: FloatingActionButton
+    private var _binding: FragmentMainBinding? = null
+    private val binding get() = _binding!!
+
     private lateinit var adapter: MedicalInfoAdapter
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        // Inflate the layout using View Binding
+        _binding = FragmentMainBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -49,23 +36,24 @@ class MainFragment : Fragment(), MedicalInfoListener {
         initViews()
         initMedicalInfoList()
         getDataFromInputFragment()
-        febAddData?.setOnClickListener {
+
+        binding.febAddData.setOnClickListener {
             val bundle = bundleOf("medicalInfoData" to adapter.currentList.toTypedArray())
             findNavController().navigate(R.id.action_mainFragment_to_inputFragment, bundle)
         }
     }
 
     private fun initViews() {
-        view?.let{
-            rvMedicalInfo = it.findViewById(R.id.rv_medical_info)
-            febAddData = it.findViewById(R.id.feb_add_data)
-            adapter = MedicalInfoAdapter(this)
+        binding.febProfile.setOnClickListener {
+            val intent = Intent(requireContext(), AboutActivity::class.java)
+            startActivity(intent)
         }
+        adapter = MedicalInfoAdapter(this)
     }
 
     private fun initMedicalInfoList() {
-        rvMedicalInfo?.layoutManager = LinearLayoutManager(context)
-        rvMedicalInfo?.adapter = adapter
+        binding.rvMedicalInfo.layoutManager = LinearLayoutManager(context)
+        binding.rvMedicalInfo.adapter = adapter
         adapter.setData(generateDummyData())
     }
 
@@ -79,7 +67,7 @@ class MainFragment : Fragment(), MedicalInfoListener {
     private fun generateDummyData(): List<MedicalInfo> {
         return listOf(
             MedicalInfo(hospitalName = "Hospital 1"),
-            MedicalInfo(hospitalName = "Hospital 2"),
+            MedicalInfo(hospitalName = "Hospital 2")
         )
     }
 
@@ -89,4 +77,8 @@ class MainFragment : Fragment(), MedicalInfoListener {
         startActivity(intent)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null // To avoid memory leaks
+    }
 }

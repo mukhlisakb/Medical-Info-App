@@ -2,4 +2,10 @@
     <string name="app_name">Medicalinfoapps</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="online">Online</string>
+    <string name="name_mukhlis">Mukhlis Akbar</string>
+    <string name="emaik">mukhlisakb@gmail.com</string>
+    <string name="title_detail">Disusun oleh \nLevel \nTeknologi \nEstimasi \nWebsite \n \nModul </string>
+    <string name="title_about_detail">Contact Person \n  \nTwitter \nInstagram \nLinkedIn \nDicoding </string>
+    <string name="about_detail">\n \n@mukhlisakb \n@amukhlisakb \nhttps://www.linkedin.com/in/mukhlisakb/  \nhttps://www.dicoding.com/users/mukhlisakb </string>
 </resources>

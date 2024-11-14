@@ -10,6 +10,7 @@
     android:padding="16dp"
     tools:context=".DetailHospitalActivity">
 
+    <!-- Back Button -->
     <ImageView
         android:id="@+id/btn_back"
         android:layout_width="30dp"
@@ -21,6 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Title Text -->
     <TextView
         android:id="@+id/detailviews"
         android:layout_width="wrap_content"
@@ -31,8 +33,9 @@
         android:textColor="@color/white"
         android:textSize="35sp"
         app:layout_constraintTop_toBottomOf="@id/btn_back"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <!-- Hospital Name -->
     <TextView
         android:id="@+id/tv_nama_rumah_sakit"
         android:layout_width="0dp"
@@ -47,7 +50,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Hospital Details Card -->
     <androidx.cardview.widget.CardView
+        android:id="@+id/cd_alamat_rumah_sakit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -83,6 +88,28 @@
                 android:textSize="16sp" />
 
         </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Hospital Image Card -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="5dp"
+        app:cardBackgroundColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/cd_alamat_rumah_sakit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/img_hospital_photo"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="6dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/rs_kota" />
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

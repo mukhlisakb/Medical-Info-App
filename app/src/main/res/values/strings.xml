@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Medicalinfoapps</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="online">Online</string>
     <string name="name_mukhlis">Mukhlis Akbar</string>
@@ -12,4 +11,48 @@
     <string name="des_rmh_sakit">Rumah Sakit ini sedang dalam perbaikian sampai 5 hari kedepan \n harap bersabar</string>
     <string name="nama_rumah_sakit">Nama Rumah Sakit</string>
     <string name="no_hp">+62 8888888</string>
+    <string-array name="data_hospital_name">
+        <item>RS Kota</item>
+        <item>RS Mitra Medika</item>
+        <item>RS Kharitas</item>
+        <item>RS Yarsi</item>
+        <item>RS Antonius</item>
+        <item>RS Anugerah Bunda</item>
+        <item>RS Sudarso</item>
+        <item>RS Kartika Husada</item>
+        <item>RS Jungkat</item>
+    </string-array>
+    <string-array name="data_hospital_address">
+        <item>Jl. Kota No. 1, Pontianak</item>
+        <item>Jl. Mitra No. 5, Pontianak</item>
+        <item>Jl. Kharitas No. 8, Pontianak</item>
+        <item>Jl. Yarsi No. 3, Pontianak</item>
+        <item>Jl. Antonius No. 2, Pontianak</item>
+        <item>Jl. Anugerah Bunda No. 6, Pontianak</item>
+        <item>Jl. Sudarso No. 7, Pontianak</item>
+        <item>Jl. Kartika Husada No. 9, Pontianak</item>
+        <item>Jl. Jungkat No. 4, Pontianak</item>
+    </string-array>
+    <string-array name="data_hospital_phone">
+        <item>+62 811-1111-1111</item>
+        <item>+62 812-2222-2222</item>
+        <item>+62 813-3333-3333</item>
+        <item>+62 814-4444-4444</item>
+        <item>+62 815-5555-5555</item>
+        <item>+62 816-6666-6666</item>
+        <item>+62 817-7777-7777</item>
+        <item>+62 818-8888-8888</item>
+        <item>+62 819-9999-9999</item>
+    </string-array>
+    <integer-array name="data_photo">
+        <item>@drawable/rs_kota</item>
+        <item>@drawable/mitramedika</item>
+        <item>@drawable/kharitas</item>
+        <item>@drawable/yarsi</item>
+        <item>@drawable/antonius</item>
+        <item>@drawable/anugerah_bunda</item>
+        <item>@drawable/sudarso</item>
+        <item>@drawable/kartikahusada</item>
+        <item>@drawable/rs_jungkat</item>
+    </integer-array>
 </resources>

@@ -54,7 +54,9 @@ class MainFragment : Fragment(), MedicalInfoListener {
     private fun initMedicalInfoList() {
         binding.rvMedicalInfo.layoutManager = LinearLayoutManager(context)
         binding.rvMedicalInfo.adapter = adapter
-        adapter.setData(generateDummyData())
+
+        // Mengambil data dari Resources dan mengisi RecyclerView
+        context?.let { adapter.setDataFromResources(it) }
     }
 
     private fun getDataFromInputFragment() {
@@ -62,21 +64,6 @@ class MainFragment : Fragment(), MedicalInfoListener {
             ?.observe(viewLifecycleOwner) { result ->
                 adapter.setData(result)
             }
-    }
-
-    private fun generateDummyData(): List<MedicalInfo> {
-        return listOf(
-            MedicalInfo(hospitalName = "Hospital 1"),
-            MedicalInfo(hospitalName = "Hospital 2"),
-            MedicalInfo(hospitalName = "Hospital 3"),
-            MedicalInfo(hospitalName = "Hospital 4"),
-            MedicalInfo(hospitalName = "Hospital 5"),
-            MedicalInfo(hospitalName = "Hospital 6"),
-            MedicalInfo(hospitalName = "Hospital 7"),
-            MedicalInfo(hospitalName = "Hospital 8"),
-            MedicalInfo(hospitalName = "Hospital 9"),
-            MedicalInfo(hospitalName = "Hospital 10")
-        )
     }
 
     override fun onNumberClicked(phoneNumber: String) {
